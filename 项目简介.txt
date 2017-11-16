@@ -1,0 +1,33 @@
+1、	首先创建数据库(名为mvc)  在数据库中创建数据表(t_user)
+2、	项目包的设计
+com.gec.web      //表现层
+com.gec.service    //业务层
+com.gec.dao      //数据访问层
+com.gec.domain   //pojo的javabean
+com.gec.db       //连接数据库
+com.gec.util       //定义工具类(第三方工具包)
+3、类名设计
+//表现层的类
+   com.gec.web.UserController(控制器)
+//业务层的类                                  (为了代码写的更漂亮，高内聚低耦合)
+   com.gec.service.IUserService(定义用户业务处理类的接口)
+       login方法
+       register方法
+   com.gec.service.impl.UserService(实现用户业务处理类接口的实现类)
+       实现login方法
+       实现register方法
+//数据访问类                 
+   com.gec.dao.BaseDao    (它是所有dao类的父类)
+     getConnection方法
+     closeConnection方法
+   com.gec.dao.IUSerDao   
+      insert(User user)
+      delete(User user)
+      update(User user)
+      query(User user)
+   com.gec.dao.impl.UserDao
+      实现insert(User user)
+      实现delete(User user)
+      实现update(User user)
+      实现query(User user)
+   com.gec.dao.DaoFactory   (用于产生Dao的对象)
